@@ -1,6 +1,6 @@
 # projeto_firebase
 
-A new Flutter project.
+Projeto feito em flutter para registro de produtos e preços em um banco integrado ao firebase
 
 ## Getting Started
 
