@@ -18,7 +18,15 @@ class _HomePageState extends State<HomePage> {
   final _formKey = GlobalKey<FormState>();
 
   // abrir caixa de dialogo para adicionar um produto
-  void abrirProdutoBox({String? docID}) {
+  void abrirProdutoBox({String? docID, String? nome, String? preco}) {
+    // Define os controladores com os valores do produto, se fornecidos
+    if (nome != null && preco != null) {
+      textController.text = nome;
+      precoController.text = preco;
+    } else {
+      textController.clear();
+      precoController.clear();
+    }
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -139,7 +147,11 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             //botao update
                             IconButton(
-                              onPressed: () => abrirProdutoBox(docID: docID),
+                              onPressed: () => abrirProdutoBox(
+                                docID: docID,
+                                nome: produtoText,
+                                preco: precoText,
+                              ),
                               icon: const Icon(Icons.settings_rounded),
                             ),
 
